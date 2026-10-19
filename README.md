@@ -1,6 +1,6 @@
 # OMX Claude Skills Toolkit
 
-Six small, free Claude Code skills for the jobs that quietly go wrong between "it works on my machine" and "the client is happy". Each one is a `SKILL.md` for Claude plus a standard-library Python CLI you can run on its own. No API keys, no paid services, and every bundled example is synthetic.
+Seven small, free Claude Code skills for the jobs that quietly go wrong between "it works on my machine" and "the client is happy". Each one is a `SKILL.md` for Claude plus a small command-line tool you can run on its own (six in standard-library Python, one in Node.js with Playwright). No API keys, no paid services, and every bundled example is synthetic.
 
 ## The tools
 
@@ -12,6 +12,7 @@ Six small, free Claude Code skills for the jobs that quietly go wrong between "i
 | [promise-check](https://github.com/OmxKamesh/promise-check) | Turns launch or marketing claims into an evidence ledger: supported, contradicted or unknown. |
 | [handoff-pack](https://github.com/OmxKamesh/handoff-pack) | Maps what a repository is missing before handover: setup, tests, ownership, recovery. Never runs project code. |
 | [scope-diff](https://github.com/OmxKamesh/scope-diff) | Compares two versions of a client's requirements and shows exactly what was added, removed, reassigned or moved. |
+| [customer-path-proof](https://github.com/OmxKamesh/customer-path-proof) | Replays a customer journey in a real browser on your local or staging app and checks the result was actually saved, not just that a "Saved!" message appeared. |
 
 ## Install a skill in Claude Code
 
@@ -25,11 +26,11 @@ Six small, free Claude Code skills for the jobs that quietly go wrong between "i
    - `~/.claude/skills/<skill-name>/` to use it in every project, or
    - `.claude/skills/<skill-name>/` inside a single project.
 
-   For `first-run-skill`, the skill folder is `skills/first-run/`. For the other five, it is the repository root.
+   For `first-run-skill`, the skill folder is `skills/first-run/`. For the others, it is the repository root. For `customer-path-proof`, also run `npm install` and `npx playwright install chromium` inside the skill folder.
 
 3. Start Claude Code and invoke it explicitly, for example `/scope-diff before.json after.json`. The skills are user-invoked only, so Claude will not run them on its own.
 
-Each repository's README has the exact install steps, requirements (Python 3.9+ or 3.10+, depending on the tool; Git for first-run and handoff-pack) and limits.
+Each repository's README has the exact install steps, requirements (Python 3.9+ or 3.10+ for the Python tools, Git for first-run and handoff-pack, Node.js 20+ for customer-path-proof) and limits.
 
 ## Use a skill in claude.ai
 
@@ -41,7 +42,7 @@ claude.ai limits a skill description to 200 characters. If an upload is rejected
 
 ## Run without Claude
 
-Every tool also works as a plain Python CLI with no pip installs. See the "try it" section in each repository's README.
+Every tool also works without Claude. The six Python tools need no pip installs; customer-path-proof needs only its free npm dependency (Playwright). See the "try it" section in each repository's README.
 
 ## License
 
